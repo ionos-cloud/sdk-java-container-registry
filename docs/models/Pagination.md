@@ -6,7 +6,8 @@
 
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **limit** | **Integer** | The maximum number of elements to return (used together with pagination.token for pagination) |  |
-| **token** | **String** | An opaque token used to iterate the set of results (used together with limit for pagination) |  |
+| **offset** | **Integer** | The offset specified in the request (if none was specified, the default offset is 0) (not implemented yet).  |  [optional] [readonly] |
+| **limit** | **Integer** | The limit specified in the request (if none was specified, use the endpoint&#39;s default pagination limit) (not implemented yet, always return number of items).  |  [optional] [readonly] |
+| **links** | [**Links**](Links.md) |  |  [optional] |
 
 

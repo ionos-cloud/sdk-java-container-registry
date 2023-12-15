@@ -23,6 +23,7 @@ Delete registry
 // Import classes:
 import com.ionoscloud.containerregistry.ApiClient;
 import com.ionoscloud.containerregistry.ApiException;
+import com.ionoscloud.containerregistry.ApiResponse;
 import com.ionoscloud.containerregistry.Configuration;
 import com.ionoscloud.containerregistry.auth.*;
 import com.ionoscloud.containerregistry.model.*;
@@ -37,11 +38,12 @@ public class Example {
     basicAuthentication.setUsername("YOUR USERNAME");
     basicAuthentication.setPassword("YOUR PASSWORD");
 
-
+    // Configure Api Key authorization: tokenAuth
+    defaultClient.setApiKeyWithBearerPrefix("YOUR TOKEN");
     RegistriesApi apiInstance = new RegistriesApi(defaultClient);
     UUID registryId = new UUID(); // UUID | The unique ID of the registry
     try {
-      apiInstance.registriesDelete(registryId);
+      apiInstance.registriesDeleteWithHttpInfo(registryId);
     } catch (ApiException e) {
       System.err.println("Exception when calling RegistriesApi#registriesDelete");
       System.err.println("Status code: " + e.getCode());
@@ -52,12 +54,13 @@ public class Example {
   }
 }
 ```
+⚠️ **Note**: for the example above, you need to provide all parameters to the method call. Null values will resolve to the API defaults.
 
 ### Parameters
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **registryId** |  [**UUID**](.md)| The unique ID of the registry |
+| **registryId** |  [**UUID**](../models/.md)| The unique ID of the registry |
 
 ### Return type
 
@@ -81,6 +84,7 @@ Get all information for a specific container registry
 // Import classes:
 import com.ionoscloud.containerregistry.ApiClient;
 import com.ionoscloud.containerregistry.ApiException;
+import com.ionoscloud.containerregistry.ApiResponse;
 import com.ionoscloud.containerregistry.Configuration;
 import com.ionoscloud.containerregistry.auth.*;
 import com.ionoscloud.containerregistry.model.*;
@@ -95,12 +99,15 @@ public class Example {
     basicAuthentication.setUsername("YOUR USERNAME");
     basicAuthentication.setPassword("YOUR PASSWORD");
 
-
+    // Configure Api Key authorization: tokenAuth
+    defaultClient.setApiKeyWithBearerPrefix("YOUR TOKEN");
     RegistriesApi apiInstance = new RegistriesApi(defaultClient);
     UUID registryId = new UUID(); // UUID | The unique ID of the registry
     try {
-      RegistryResponse result = apiInstance.registriesFindById(registryId);
-      System.out.println(result);
+      ApiResponse<RegistryResponse> result = apiInstance.registriesFindByIdWithHttpInfo(registryId);
+      System.out.println("Response: " + result.getData());
+      System.out.println("Status Code: " + result.getStatusCode());
+      System.out.println("Headers: " + result.getHeaders());
     } catch (ApiException e) {
       System.err.println("Exception when calling RegistriesApi#registriesFindById");
       System.err.println("Status code: " + e.getCode());
@@ -111,12 +118,13 @@ public class Example {
   }
 }
 ```
+⚠️ **Note**: for the example above, you need to provide all parameters to the method call. Null values will resolve to the API defaults.
 
 ### Parameters
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **registryId** |  [**UUID**](.md)| The unique ID of the registry |
+| **registryId** |  [**UUID**](../models/.md)| The unique ID of the registry |
 
 ### Return type
 
@@ -140,6 +148,7 @@ List all managed container registries for your account
 // Import classes:
 import com.ionoscloud.containerregistry.ApiClient;
 import com.ionoscloud.containerregistry.ApiException;
+import com.ionoscloud.containerregistry.ApiResponse;
 import com.ionoscloud.containerregistry.Configuration;
 import com.ionoscloud.containerregistry.auth.*;
 import com.ionoscloud.containerregistry.model.*;
@@ -154,14 +163,19 @@ public class Example {
     basicAuthentication.setUsername("YOUR USERNAME");
     basicAuthentication.setPassword("YOUR PASSWORD");
 
-
+    // Configure Api Key authorization: tokenAuth
+    defaultClient.setApiKeyWithBearerPrefix("YOUR TOKEN");
     RegistriesApi apiInstance = new RegistriesApi(defaultClient);
     String filterName = "my-registry"; // String | The registry name to search for
     String limit = "100"; // String | The maximum number of elements to return (used together with pagination.token for pagination)
     String paginationToken = "eyJ2IjoibWV0YS5rOHMuaW8vdjEiLCJydiI6MTYzMjQ0OTk2ODAsInN0YXJ0IjoiM2RmYTc3YjctZGIwNS00MjMwLThmMjAtOGU3NjJlOTUxOTUzXHUwMDAwIn0"; // String | An opaque token used to iterate the set of results (used together with limit for pagination)
+    String orderBy = "orderBy_example"; // String | Order by field
+    Integer maxResults = "maxResults_example"; // Integer | Maximum number of results to return
     try {
-      RegistriesResponse result = apiInstance.registriesGet(filterName, limit, paginationToken);
-      System.out.println(result);
+      ApiResponse<RegistriesResponse> result = apiInstance.registriesGetWithHttpInfo(filterName, limit, paginationToken, orderBy, maxResults, filters);
+      System.out.println("Response: " + result.getData());
+      System.out.println("Status Code: " + result.getStatusCode());
+      System.out.println("Headers: " + result.getHeaders());
     } catch (ApiException e) {
       System.err.println("Exception when calling RegistriesApi#registriesGet");
       System.err.println("Status code: " + e.getCode());
@@ -172,6 +186,7 @@ public class Example {
   }
 }
 ```
+⚠️ **Note**: for the example above, you need to provide all parameters to the method call. Null values will resolve to the API defaults.
 
 ### Parameters
 
@@ -203,6 +218,7 @@ Update the properties of a registry - \&quot;garbageCollectionSchedule\&quot; ti
 // Import classes:
 import com.ionoscloud.containerregistry.ApiClient;
 import com.ionoscloud.containerregistry.ApiException;
+import com.ionoscloud.containerregistry.ApiResponse;
 import com.ionoscloud.containerregistry.Configuration;
 import com.ionoscloud.containerregistry.auth.*;
 import com.ionoscloud.containerregistry.model.*;
@@ -217,13 +233,16 @@ public class Example {
     basicAuthentication.setUsername("YOUR USERNAME");
     basicAuthentication.setPassword("YOUR PASSWORD");
 
-
+    // Configure Api Key authorization: tokenAuth
+    defaultClient.setApiKeyWithBearerPrefix("YOUR TOKEN");
     RegistriesApi apiInstance = new RegistriesApi(defaultClient);
     UUID registryId = new UUID(); // UUID | The unique ID of the registry
     PatchRegistryInput patchRegistryInput = new PatchRegistryInput(); // PatchRegistryInput | 
     try {
-      RegistryResponse result = apiInstance.registriesPatch(registryId, patchRegistryInput);
-      System.out.println(result);
+      ApiResponse<RegistryResponse> result = apiInstance.registriesPatchWithHttpInfo(registryId, patchRegistryInput);
+      System.out.println("Response: " + result.getData());
+      System.out.println("Status Code: " + result.getStatusCode());
+      System.out.println("Headers: " + result.getHeaders());
     } catch (ApiException e) {
       System.err.println("Exception when calling RegistriesApi#registriesPatch");
       System.err.println("Status code: " + e.getCode());
@@ -234,13 +253,14 @@ public class Example {
   }
 }
 ```
+⚠️ **Note**: for the example above, you need to provide all parameters to the method call. Null values will resolve to the API defaults.
 
 ### Parameters
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **registryId** |  [**UUID**](.md)| The unique ID of the registry |
-| **patchRegistryInput** |  [**PatchRegistryInput**](PatchRegistryInput.md)|  |
+| **registryId** |  [**UUID**](../models/.md)| The unique ID of the registry |
+| **patchRegistryInput** |  [**PatchRegistryInput**](../models/PatchRegistryInput.md)|  |
 
 ### Return type
 
@@ -257,13 +277,14 @@ public class Example {
 
 Create container registry
 
-Create a registry to hold container images or OCI compliant artifacts - \&quot;name\&quot; must have passed validation - \&quot;location\&quot; must be one of the available location IDs - \&quot;garbageCollectionSchedule\&quot; time and days of the week for runs
+Create a registry to hold container images or OCI compliant artifacts - \&quot;name\&quot; must have passed validation - \&quot;location\&quot; must be one of the available location IDs - \&quot;garbageCollectionSchedule\&quot; time and days of the week for runs - \&quot;features\&quot;: \&quot;vulnerabilityScanning\&quot; default is enabled
 
 ### Example
 ```java
 // Import classes:
 import com.ionoscloud.containerregistry.ApiClient;
 import com.ionoscloud.containerregistry.ApiException;
+import com.ionoscloud.containerregistry.ApiResponse;
 import com.ionoscloud.containerregistry.Configuration;
 import com.ionoscloud.containerregistry.auth.*;
 import com.ionoscloud.containerregistry.model.*;
@@ -278,12 +299,15 @@ public class Example {
     basicAuthentication.setUsername("YOUR USERNAME");
     basicAuthentication.setPassword("YOUR PASSWORD");
 
-
+    // Configure Api Key authorization: tokenAuth
+    defaultClient.setApiKeyWithBearerPrefix("YOUR TOKEN");
     RegistriesApi apiInstance = new RegistriesApi(defaultClient);
     PostRegistryInput postRegistryInput = new PostRegistryInput(); // PostRegistryInput | 
     try {
-      PostRegistryOutput result = apiInstance.registriesPost(postRegistryInput);
-      System.out.println(result);
+      ApiResponse<PostRegistryOutput> result = apiInstance.registriesPostWithHttpInfo(postRegistryInput);
+      System.out.println("Response: " + result.getData());
+      System.out.println("Status Code: " + result.getStatusCode());
+      System.out.println("Headers: " + result.getHeaders());
     } catch (ApiException e) {
       System.err.println("Exception when calling RegistriesApi#registriesPost");
       System.err.println("Status code: " + e.getCode());
@@ -294,12 +318,13 @@ public class Example {
   }
 }
 ```
+⚠️ **Note**: for the example above, you need to provide all parameters to the method call. Null values will resolve to the API defaults.
 
 ### Parameters
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **postRegistryInput** |  [**PostRegistryInput**](PostRegistryInput.md)|  |
+| **postRegistryInput** |  [**PostRegistryInput**](../models/PostRegistryInput.md)|  |
 
 ### Return type
 
@@ -316,13 +341,14 @@ public class Example {
 
 Create or replace a container registry
 
-Create/replace a registry to hold container images or OCI compliant artifacts  **On create** - \&quot;name\&quot; must have passed validation - \&quot;location\&quot; must be one of the available location IDs  **On update** - \&quot;name\&quot; cannot be changed - \&quot;location\&quot; cannot be changed  **On create or update** - \&quot;garbageCollectionSchedule\&quot;: time and days of the week for runs 
+Create/replace a registry to hold container images or OCI compliant artifacts **On create** - \&quot;name\&quot; must have passed validation - \&quot;location\&quot; must be one of the available location IDs **On update** - \&quot;name\&quot; cannot be changed - \&quot;location\&quot; cannot be changed **On create or update** - \&quot;garbageCollectionSchedule\&quot;: time and days of the week for runs 
 
 ### Example
 ```java
 // Import classes:
 import com.ionoscloud.containerregistry.ApiClient;
 import com.ionoscloud.containerregistry.ApiException;
+import com.ionoscloud.containerregistry.ApiResponse;
 import com.ionoscloud.containerregistry.Configuration;
 import com.ionoscloud.containerregistry.auth.*;
 import com.ionoscloud.containerregistry.model.*;
@@ -337,13 +363,16 @@ public class Example {
     basicAuthentication.setUsername("YOUR USERNAME");
     basicAuthentication.setPassword("YOUR PASSWORD");
 
-
+    // Configure Api Key authorization: tokenAuth
+    defaultClient.setApiKeyWithBearerPrefix("YOUR TOKEN");
     RegistriesApi apiInstance = new RegistriesApi(defaultClient);
     UUID registryId = new UUID(); // UUID | The unique ID of the registry
     PutRegistryInput putRegistryInput = new PutRegistryInput(); // PutRegistryInput | 
     try {
-      PutRegistryOutput result = apiInstance.registriesPut(registryId, putRegistryInput);
-      System.out.println(result);
+      ApiResponse<PutRegistryOutput> result = apiInstance.registriesPutWithHttpInfo(registryId, putRegistryInput);
+      System.out.println("Response: " + result.getData());
+      System.out.println("Status Code: " + result.getStatusCode());
+      System.out.println("Headers: " + result.getHeaders());
     } catch (ApiException e) {
       System.err.println("Exception when calling RegistriesApi#registriesPut");
       System.err.println("Status code: " + e.getCode());
@@ -354,13 +383,14 @@ public class Example {
   }
 }
 ```
+⚠️ **Note**: for the example above, you need to provide all parameters to the method call. Null values will resolve to the API defaults.
 
 ### Parameters
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **registryId** |  [**UUID**](.md)| The unique ID of the registry |
-| **putRegistryInput** |  [**PutRegistryInput**](PutRegistryInput.md)|  |
+| **registryId** |  [**UUID**](../models/.md)| The unique ID of the registry |
+| **putRegistryInput** |  [**PutRegistryInput**](../models/PutRegistryInput.md)|  |
 
 ### Return type
 

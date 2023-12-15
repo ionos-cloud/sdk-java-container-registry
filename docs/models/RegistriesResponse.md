@@ -10,7 +10,7 @@
 | **href** | **String** |  |  [optional] |
 | **id** | **String** |  |  [optional] |
 | **items** | [**List&lt;RegistryResponse&gt;**](RegistryResponse.md) |  |  [optional] |
-| **pagination** | [**Pagination**](Pagination.md) |  |  |
+| **pagination** | [**RegistryPagination**](RegistryPagination.md) |  |  |
 | **type** | **String** |  |  [optional] |
 
 

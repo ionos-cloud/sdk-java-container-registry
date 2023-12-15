@@ -1,0 +1,33 @@
+
+
+# RepositoryReadList
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ------------ | ------------- | ------------- | ------------- |
+| **id** | [**IdEnum**](#IdEnum) |  |  |
+| **type** | [**TypeEnum**](#TypeEnum) |  |  |
+| **href** | **String** |  |  |
+| **items** | [**List&lt;RepositoryRead&gt;**](RepositoryRead.md) |  |  [optional] |
+| **offset** | **Integer** | The offset specified in the request (if none was specified, the default offset is 0) (not implemented yet).  |  [readonly] |
+| **limit** | **Integer** | The limit specified in the request (if none was specified, use the endpoint&#39;s default pagination limit) (not implemented yet, always return number of items).  |  [readonly] |
+| **links** | [**Links**](Links.md) |  |  |
+
+
+
+## Enum: IdEnum
+
+| Name | Value |
+| ---- | -----
+| REPOSITORIES | &quot;repositories&quot; |
+
+
+
+## Enum: TypeEnum
+
+| Name | Value |
+| ---- | -----
+| COLLECTION | &quot;collection&quot; |
+
+

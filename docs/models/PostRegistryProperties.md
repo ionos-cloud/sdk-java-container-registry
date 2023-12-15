@@ -9,5 +9,6 @@
 | **garbageCollectionSchedule** | [**WeeklySchedule**](WeeklySchedule.md) |  |  [optional] |
 | **location** | **String** |  |  |
 | **name** | **String** |  |  |
+| **features** | [**RegistryFeatures**](RegistryFeatures.md) |  |  [optional] |
 
 

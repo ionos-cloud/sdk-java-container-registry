@@ -11,5 +11,6 @@
 | **location** | **String** |  |  |
 | **name** | **String** |  |  |
 | **storageUsage** | [**StorageUsage**](StorageUsage.md) |  |  [optional] |
+| **features** | [**RegistryFeatures**](RegistryFeatures.md) |  |  [optional] |
 
 

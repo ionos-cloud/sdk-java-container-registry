@@ -6,7 +6,7 @@
 
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **bytes** | **Integer** |  |  |
+| **bytes** | **Long** |  |  |
 | **updatedAt** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional] |
 
 

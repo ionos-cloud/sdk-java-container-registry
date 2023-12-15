@@ -20,6 +20,7 @@ Validate that the name is suitable to use for a new registry: - it uses only the
 // Import classes:
 import com.ionoscloud.containerregistry.ApiClient;
 import com.ionoscloud.containerregistry.ApiException;
+import com.ionoscloud.containerregistry.ApiResponse;
 import com.ionoscloud.containerregistry.Configuration;
 import com.ionoscloud.containerregistry.auth.*;
 import com.ionoscloud.containerregistry.model.*;
@@ -34,11 +35,12 @@ public class Example {
     basicAuthentication.setUsername("YOUR USERNAME");
     basicAuthentication.setPassword("YOUR PASSWORD");
 
-
+    // Configure Api Key authorization: tokenAuth
+    defaultClient.setApiKeyWithBearerPrefix("YOUR TOKEN");
     NamesApi apiInstance = new NamesApi(defaultClient);
     String name = "name_example"; // String | The desired registry name
     try {
-      apiInstance.namesCheckUsage(name);
+      apiInstance.namesCheckUsageWithHttpInfo(name);
     } catch (ApiException e) {
       System.err.println("Exception when calling NamesApi#namesCheckUsage");
       System.err.println("Status code: " + e.getCode());
@@ -49,6 +51,7 @@ public class Example {
   }
 }
 ```
+⚠️ **Note**: for the example above, you need to provide all parameters to the method call. Null values will resolve to the API defaults.
 
 ### Parameters
 

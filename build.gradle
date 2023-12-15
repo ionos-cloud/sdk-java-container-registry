@@ -9,7 +9,7 @@ apply plugin: 'nexus-workflow'
 
 
 group = 'com.ionoscloud.containerregistry'
-version = '1.0.0'
+version = '1.1.0'
 
 buildscript {
     repositories {
@@ -76,8 +76,8 @@ publishing {
                 }
             }
             pom {
-                name = "Ionos Cloud DBaas Sdk"
-                description = "With IONOS Cloud Database as a Service, you can quickly setup and manage a MongoDB database. It is designed to allow users to leverage the same power and flexibility found within the DCD visual tool. Both tools are consistent with their concepts and lend well to making the experience smooth and intuitive."
+                name = "containerregistry"
+                description = "The API allows you to perform a variety of management tasks such as provisioning new resources in the ionos cloud."
                 url = "https://github.com/ionos-cloud/ionos-cloud-sdk-container-registry"
                 licenses {
                     license {
